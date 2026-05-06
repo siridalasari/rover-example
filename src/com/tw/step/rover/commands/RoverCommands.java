@@ -8,6 +8,7 @@ public class RoverCommands extends ArrayList<RoverCommand>  implements RoverComm
     @Override
     public void execute(Rover rover) {
         for (RoverCommand roverCommand : this) {
+            System.out.println(roverCommand);
             roverCommand.execute(rover);
         }
     }

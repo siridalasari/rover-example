@@ -14,4 +14,5 @@ class PlateauTest {
         assertTrue(plateau.isWithin(new Coordinate(2, 2)));
         assertFalse(plateau.isWithin(new Coordinate(3, 2)));
     }
+
 }

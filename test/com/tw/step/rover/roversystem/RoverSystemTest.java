@@ -1,6 +1,5 @@
 package com.tw.step.rover.roversystem;
 
-import com.tw.step.rover.boundary.InfinitePlateau;
 import com.tw.step.rover.commands.MoveCommand;
 import com.tw.step.rover.commands.RoverCommands;
 import com.tw.step.rover.position.Coordinate;

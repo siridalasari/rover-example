@@ -13,13 +13,11 @@ import com.tw.step.rover.rover.Rover;
 public class RoverSystemParser {
     private final RoverSystemScanner scanner;
     private final Navigator navigator;
-    private final Boundary boundary;
     private final CommandCreator commandCreator;
 
-    public RoverSystemParser(RoverSystemScanner scanner, Navigator navigator, Boundary boundary, CommandCreator commandCreator) {
+    public RoverSystemParser(RoverSystemScanner scanner, Navigator navigator, CommandCreator commandCreator) {
         this.scanner = scanner;
         this.navigator = navigator;
-        this.boundary = boundary;
         this.commandCreator = commandCreator;
     }
 
@@ -29,13 +27,13 @@ public class RoverSystemParser {
         return new Rover(coordinate, heading);
     }
 
-    private Plateau parsePlateau(){
+    private Boundary parsePlateau(){
         Coordinate topRight = scanner.scanCoordinate();
         Coordinate bottomLeft = new Coordinate(0, 0);
         return new Plateau(bottomLeft, topRight);
     }
 
-    private RoverCommands parseRoverCommands() {
+    private RoverCommands parseRoverCommands(Boundary boundary) {
         RoverCommands roverCommands = new RoverCommands();
         String instructions = scanner.consume();
         for (int i = 0; i < instructions.length(); i++) {
@@ -48,10 +46,10 @@ public class RoverSystemParser {
 
     public RoverSystem parse() {
         RoverSystem roverSystem = new RoverSystem();
-        Plateau plateau = parsePlateau();
+        Boundary boundary = parsePlateau();
         Rover rover = parseRover();
         roverSystem.addRover(rover);
-        RoverCommands roverCommands = parseRoverCommands();
+        RoverCommands roverCommands = parseRoverCommands(boundary);
         roverSystem.addCommands(roverCommands);
         return roverSystem;
     }

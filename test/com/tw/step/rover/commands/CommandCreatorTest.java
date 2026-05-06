@@ -1,6 +1,5 @@
 package com.tw.step.rover.commands;
 
-import com.tw.step.rover.boundary.InfinitePlateau;
 import com.tw.step.rover.position.Navigator;
 import org.junit.jupiter.api.Test;
 

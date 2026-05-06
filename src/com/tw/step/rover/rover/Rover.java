@@ -34,6 +34,8 @@ public class Rover {
         this.roverState = this.roverState.move(navigator, boundary);
     }
 
+
+    //Internals
     void turnLeftInternal(Navigator navigator) {
         this.heading = navigator.leftOf(this.heading);
     }
@@ -46,12 +48,13 @@ public class Rover {
         return navigator.nextCoordinate(this.coordinate, this.heading);
     }
 
+
     void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
 
-    boolean isWithin(Boundary boundary) {
-        return boundary.isWithin(this.coordinate);
+    boolean isWithin(Boundary boundary, Coordinate nextCoordinate) {
+        return boundary.isWithin(nextCoordinate);
     }
 
     @Override
