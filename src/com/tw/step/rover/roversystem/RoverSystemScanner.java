@@ -46,12 +46,6 @@ public class RoverSystemScanner {
         return new Coordinate(x,y);
     }
 
-    public Plateau scanPlateauBoundaries() {
-        int x = this.scanNumber();
-        int y = this.scanNumber();
-        return new Plateau(new Coordinate(0, 0), new Coordinate(x, y));
-    }
-
     public Direction scanDirection() {
         return Direction.valueOf(this.consume());
     }
