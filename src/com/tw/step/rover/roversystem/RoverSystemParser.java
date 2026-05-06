@@ -28,15 +28,6 @@ public class RoverSystemParser {
         return new Rover(coordinate, heading);
     }
 
-    public RoverSystem parse() {
-        RoverSystem roverSystem = new RoverSystem();
-        Rover rover = parseRover();
-        roverSystem.addRover(rover);
-        RoverCommands roverCommands = parseRoverCommands();
-        roverSystem.addCommands(roverCommands);
-        return roverSystem;
-    }
-
     private RoverCommands parseRoverCommands() {
         RoverCommands roverCommands = new RoverCommands();
         String instructions = scanner.consume();
@@ -46,5 +37,14 @@ public class RoverSystemParser {
         }
 
         return roverCommands;
+    }
+
+    public RoverSystem parse() {
+        RoverSystem roverSystem = new RoverSystem();
+        Rover rover = parseRover();
+        roverSystem.addRover(rover);
+        RoverCommands roverCommands = parseRoverCommands();
+        roverSystem.addCommands(roverCommands);
+        return roverSystem;
     }
 }

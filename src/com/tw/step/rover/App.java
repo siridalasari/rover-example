@@ -11,9 +11,10 @@ import com.tw.step.rover.roversystem.RoverSystemScanner;
 public class App {
     static void main() {
         String text = """
-1 5 N
-LFFRFLFFFR
-                """;
+5 5
+1 2 N
+LFFRFFFF
+""";
 
         RoverSystemScanner scanner = RoverSystemScanner.from(text);
         Navigator navigator = Navigator.create();
